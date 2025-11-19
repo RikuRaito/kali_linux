@@ -1,0 +1,7 @@
+*
+
+#ただし以下は共有
+!Dockerfile
+!docker-compose.yml
+!.gitignore
+!README.md
