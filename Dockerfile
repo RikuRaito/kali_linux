@@ -8,6 +8,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y \
     htop \
     fish \
     inetutils-ping \
+    socat \
     # ネットワークスキャン・偵察
     nmap \
     gobuster \
@@ -33,6 +34,9 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y \
 
 # rockyou.txtを解凍（よく使うワードリスト）
 RUN gunzip -f /usr/share/wordlists/rockyou.txt.gz 2>/dev/null || true
+
+# common.txt類をインストール
+RUN apt update && apt install -y seclists
 
 # VPN用のディレクトリを作成
 RUN mkdir -p /dev/net && mknod /dev/net/tun c 10 200 && chmod 600 /dev/net/tun
